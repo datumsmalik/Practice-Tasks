@@ -1,0 +1,12 @@
+2025-07-08 12:13:59,937 - INFO - Division successful: 10 / 2 = 5.0
+2025-07-08 12:13:59,938 - ERROR - Tried to divide by zero!
+2025-07-08 12:13:59,938 - ERROR - Unexpected error: unsupported operand type(s) for /: 'int' and 'str'
+2025-07-08 12:24:51,857 - INFO - Division successful: 10 / 2 = 5.0
+2025-07-08 12:24:51,857 - ERROR - Tried to divide by zero!
+2025-07-08 12:24:51,857 - ERROR - Unexpected error: unsupported operand type(s) for /: 'int' and 'str'
+2025-07-08 12:25:00,964 - INFO - Division successful: 10 / 2 = 5.0
+2025-07-08 12:25:00,964 - ERROR - Tried to divide by zero!
+2025-07-08 12:25:00,964 - ERROR - Unexpected error: unsupported operand type(s) for /: 'int' and 'str'
+2025-07-08 12:31:39,871 - INFO - Division successful: 10 / 2 = 5.0
+2025-07-08 12:31:39,871 - ERROR - Tried to divide by zero!
+2025-07-08 12:31:39,871 - ERROR - Unexpected error: unsupported operand type(s) for /: 'int' and 'str'

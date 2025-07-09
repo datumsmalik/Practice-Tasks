@@ -1,0 +1,8 @@
+  Name , Age , Location , salary,Notes
+John Doe,29,new york,55000,Good employee
+jane smith,, San Francisco ,,
+ Bob Brown ,45,los angeles,72000,PROMOTED
+John Doe,29,new york,55000,Good employee
+,38,Chicago,63000,Missing name
+Alice Johnson,30,boston,,Excellent
+RandomText,N/A,N/A,N/A,Delete this row

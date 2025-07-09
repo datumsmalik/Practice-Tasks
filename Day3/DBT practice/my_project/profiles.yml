@@ -1,0 +1,11 @@
+my_project:         # This should match your dbt_project.yml profile
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: dbt_user
+      password: dbt_pass
+      port: 5432
+      dbname: dbt_test
+      schema: public
+  target: dev
