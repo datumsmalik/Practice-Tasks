@@ -1,0 +1,4 @@
+order_id,product,price,id,name,contact.email,contact.phone
+101,Laptop,1200,1,Alice,alice@example.com,123-456-7890
+102,Mouse,25,1,Alice,alice@example.com,123-456-7890
+103,Keyboard,45,2,Bob,bob@example.com,987-654-3210

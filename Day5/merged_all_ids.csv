@@ -1,0 +1,6 @@
+id,name,age,email,city,salary,department
+1,Alice,25.0,alice@example.com,New York,70000.0,HR
+2,Bob,30.0,bob@example.com,Los Angeles,,
+3,Charlie,35.0,,,80000.0,Engineering
+4,,,david@example.com,Chicago,,
+5,,,,,90000.0,Marketing
