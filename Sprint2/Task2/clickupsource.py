@@ -1,4 +1,5 @@
 #in this task we have created a pipeline to load data from clickup to a postgres database 
+#select particluar endpoint to get the data from clickup we have to use the list id to get the data from clickup
 
 
 '''import requests
