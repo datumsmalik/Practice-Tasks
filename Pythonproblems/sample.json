@@ -1,0 +1,24 @@
+{
+    "user":{
+        "id":123,
+        "name":{
+            "first":"Alice",
+            "last":"Johnson"
+        },
+        "location":{
+            "country":"Germany",
+            "city":{
+                "name":"Berlin",
+                "postal":{
+                    "code":"10115",
+                    "area":"Mitte"
+                }
+            }
+            
+    },
+    "account":{
+        "created_at":"2021-01-01",
+        "status":"active"
+    }
+}
+}
