@@ -66,7 +66,7 @@ pg_cursor.execute("""
 pg_conn.commit() # commit is like save button in DB asan alfaz me
 
 #ye loop har row ko insert karega postgres me dataframe se le kr
-for _, row in df.iterrows():
+for _, row in df.iterrows(): # this loop iterate through every row and gives you index and row itself now we using _ itmean to ignore index
     pg_cursor.execute(   #insert row into table
         "INSERT INTO DATUM (id, name, email) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING;", # if row exsist phir insert nahi kare ga 
         (row["id"], row["name"], row["email"])
@@ -102,7 +102,7 @@ snowflake_cursor.execute("""
     email TEXT
     )
 """)
-for _, row in df_pg.iterrows():
+for _, row in df_pg.iterrows():    
     snowflake_cursor.execute(
         "INSERT INTO DATUM (id, name, email) VALUES (%s, %s, %s) ", 
         
