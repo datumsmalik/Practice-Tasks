@@ -1,0 +1,7 @@
+✅ Read data.csv:
+      name  age
+0    Alice   25
+1      Bob   30
+2  Charlie   35
+✅ Added salary column.
+✅ Processed data saved to processed_data.csv

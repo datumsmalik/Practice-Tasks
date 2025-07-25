@@ -1,0 +1,83 @@
+2025-07-24 10:58:59 +0000 - dagster - DEBUG - dlt_data_pipeline_job - c7883430-6d2b-4dd5-89ec-e9236e1ba7b8 - 10311 - LOGS_CAPTURED - Started capturing logs in process (pid: 10311).
+2025-07-24 10:58:59 +0000 - dagster - DEBUG - dlt_data_pipeline_job - c7883430-6d2b-4dd5-89ec-e9236e1ba7b8 - 10311 - dlt_pipeline_op - STEP_START - Started execution of step "dlt_pipeline_op".
+2025-07-24 10:58:59 +0000 - dagster - ERROR - dlt_data_pipeline_job - c7883430-6d2b-4dd5-89ec-e9236e1ba7b8 - 10311 - dlt_pipeline_op - STEP_FAILURE - Execution of step "dlt_pipeline_op" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "dlt_pipeline_op"::
+
+dlt.pipeline.exceptions.PipelineStepFailed: Pipeline execution failed at `step=sync` with exception:
+
+<class 'dlt.common.exceptions.MissingDependencyException'>
+
+You must install additional dependencies to run `snowflake destination`. If you use pip you may do the following:
+
+pip install "dlt[snowflake]"
+
+Dependencies for specific destinations are available as extras of dlt
+
+Stack Trace:
+  File "/usr/local/lib/python3.12/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/usr/local/lib/python3.12/site-packages/dagster/_utils/__init__.py", line 392, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 137, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 117, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/app/dagster_demo/pipeline.py", line 63, in dlt_pipeline_op
+    load_info = pipeline.run(df, table_name="processed_datahe")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 231, in _wrap
+    step_info = f(self, *args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 280, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 713, in run
+    self._sync_destination(destination, staging, dataset_name)
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 185, in _wrap
+    rv = f(self, *args, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 882, in _sync_destination
+    raise PipelineStepFailed(self, "sync", None, ex, None) from ex
+
+The above exception was caused by the following exception:
+dlt.common.exceptions.MissingDependencyException: 
+You must install additional dependencies to run `snowflake destination`. If you use pip you may do the following:
+
+pip install "dlt[snowflake]"
+
+Dependencies for specific destinations are available as extras of dlt
+
+Stack Trace:
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 786, in _sync_destination
+    remote_state = self._restore_state_from_destination()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 1589, in _restore_state_from_destination
+    with self._get_destination_clients(schema)[0] as job_client:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 1337, in _get_destination_clients
+    destination_client, staging_client = get_destination_clients(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/destinations/dataset/utils.py", line 93, in get_destination_clients
+    raise MissingDependencyException(
+
+The above exception occurred during handling of the following exception:
+ModuleNotFoundError: No module named 'snowflake'
+
+Stack Trace:
+  File "/usr/local/lib/python3.12/site-packages/dlt/destinations/dataset/utils.py", line 85, in get_destination_clients
+    client = destination.client(schema, initial_config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/common/destination/reference.py", line 181, in client
+    return self.client_class(schema, config, caps)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dlt/destinations/impl/snowflake/factory.py", line 135, in client_class
+    from dlt.destinations.impl.snowflake.snowflake import SnowflakeClient
+  File "/usr/local/lib/python3.12/site-packages/dlt/destinations/impl/snowflake/snowflake.py", line 24, in <module>
+    from dlt.destinations.impl.snowflake.sql_client import SnowflakeSqlClient
+  File "/usr/local/lib/python3.12/site-packages/dlt/destinations/impl/snowflake/sql_client.py", line 4, in <module>
+    import snowflake.connector as snowflake_lib
+

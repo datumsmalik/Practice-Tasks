@@ -1,0 +1,11 @@
+FROM ubuntu:20.04
+
+WORKDIR /workspace
+
+#Copies the file startup.sh from your host machine (same folder as Dockerfile) into the container's root directory as /startup.sh .
+COPY startup.sh /startup.sh
+
+#Gives execute permission to startup.sh so the container can run it.
+RUN chmod +x /startup.sh
+
+CMD ["/startup.sh"]

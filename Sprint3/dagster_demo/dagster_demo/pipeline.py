@@ -60,7 +60,7 @@ def dlt_pipeline_op():
     )
 
     # Load Pandas DataFrame into DLT
-    load_info = pipeline.run(df, table_name="processed_datahe")
+    load_info = pipeline.run(df, table_name="processed_datahe2")
     print(f"✅ Data loaded to Snowflake: {load_info}")
 
     return processed_file
