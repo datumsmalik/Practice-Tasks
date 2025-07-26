@@ -9,7 +9,7 @@ def new_csv_sensor(context):
     if not os.path.exists(WATCH_FOLDER):
         os.makedirs(WATCH_FOLDER)
 
-    csv_files = [f for f in os.listdir(WATCH_FOLDER) if f.endswith(".csv")]
+    csv_files = [f for f in os.listdir(WATCH_FOLDER) if f.endswith(".csv")]  # filters only file that ends with csv
     if not csv_files:
         context.log.info("No new CSV files found.")
         return
