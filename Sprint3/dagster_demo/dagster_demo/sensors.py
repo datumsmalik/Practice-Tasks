@@ -16,4 +16,6 @@ def new_csv_sensor(context):
 
     for csv_file in csv_files:
         context.log.info(f"New CSV file detected: {csv_file}")
-        yield RunRequest(run_key=csv_file)
+        yield RunRequest(run_key=csv_file)   # gives each run a unique key (usually to avoid duplicate runs for the same file).  # RunRequest → tells Dagster to trigger a new run.
+
+# yield → used in a sensor or generator function to lazily send a value.
