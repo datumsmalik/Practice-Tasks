@@ -8,6 +8,8 @@ WORKDIR /app
 
 # Copy dependencies file and install
 COPY requirements.txt .
+
+# -r means read from file
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy entire project into container (folder within folder)
