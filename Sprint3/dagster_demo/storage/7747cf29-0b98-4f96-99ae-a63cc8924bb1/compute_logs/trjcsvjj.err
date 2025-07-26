@@ -1,7 +1,0 @@
-2025-07-24 10:56:38 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - 6739 - LOGS_CAPTURED - Started capturing logs in process (pid: 6739).
-2025-07-24 10:56:38 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - 6739 - fetch_data_asset - STEP_START - Started execution of step "fetch_data_asset".
-2025-07-24 10:56:38 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - 6739 - fetch_data_asset - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-2025-07-24 10:56:39 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - fetch_data_asset - Writing file at: /app/storage/fetch_data_asset using PickledObjectFilesystemIOManager...
-2025-07-24 10:56:39 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - 6739 - fetch_data_asset - ASSET_MATERIALIZATION - Materialized value fetch_data_asset.
-2025-07-24 10:56:39 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - 6739 - fetch_data_asset - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-2025-07-24 10:56:39 +0000 - dagster - DEBUG - __ASSET_JOB - 7747cf29-0b98-4f96-99ae-a63cc8924bb1 - 6739 - fetch_data_asset - STEP_SUCCESS - Finished execution of step "fetch_data_asset" in 143ms.
