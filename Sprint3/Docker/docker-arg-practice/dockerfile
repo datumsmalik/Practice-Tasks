@@ -1,0 +1,21 @@
+# Dockerfile
+FROM python:3.10-slim
+
+# Declare build-time argument
+#ARG allows you to pass variables during docker build time.
+
+ARG APP_NAME="default-app"
+
+# Set working directory using argument
+WORKDIR /${APP_NAME}
+
+# Copy the app
+COPY app.py .
+
+# Run the app
+CMD ["python", "app.py"]
+
+
+
+#Not to be confused with ENV (used inside containers after build).
+

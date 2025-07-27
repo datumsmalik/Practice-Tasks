@@ -1,0 +1,9 @@
+#workspace.yml) file is essential when you're running Dagster in development mode (dagster dev). It tells Dagster:
+
+#“Where are the code locations that contain my pipelines, assets, jobs, schedules, sensors, etc.?”
+
+
+
+load_from:
+  - python_file:
+      relative_path: dagster_demo/repository.py

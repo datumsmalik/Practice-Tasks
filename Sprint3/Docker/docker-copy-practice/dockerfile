@@ -1,0 +1,18 @@
+# Use base Python image
+FROM python:3.12-slim
+
+# Set working directory
+WORKDIR /code
+
+# Copy README.md file to container
+COPY readme.md .
+
+# Copy the whole 'app' folder into container
+COPY app/ ./app/  
+# host ki machine se docker me copy ho rha he 
+
+# Set working dir inside app for running
+WORKDIR /code/app
+
+# Run main.py
+CMD ["python", "main.py"]
