@@ -1,8 +1,0 @@
-2025-07-24 11:39:31 +0000 - dagster - DEBUG - dlt_data_pipeline_job - 542f5f8b-aa20-49ce-8653-314b902007a5 - 3522 - LOGS_CAPTURED - Started capturing logs in process (pid: 3522).
-2025-07-24 11:39:31 +0000 - dagster - DEBUG - dlt_data_pipeline_job - 542f5f8b-aa20-49ce-8653-314b902007a5 - 3522 - dlt_pipeline_op - STEP_START - Started execution of step "dlt_pipeline_op".
-/usr/local/lib/python3.12/site-packages/snowflake/connector/options.py:104: UserWarning: You have an incompatible version of 'pyarrow' installed (21.0.0), please install a version that adheres to: 'pyarrow<19.0.0; extra == "pandas"'
-  warn_incompatible_dep(
-2025-07-24 11:39:45 +0000 - dagster - DEBUG - dlt_data_pipeline_job - 542f5f8b-aa20-49ce-8653-314b902007a5 - 3522 - dlt_pipeline_op - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-2025-07-24 11:39:45 +0000 - dagster - DEBUG - dlt_data_pipeline_job - 542f5f8b-aa20-49ce-8653-314b902007a5 - dlt_pipeline_op - Writing file at: /app/storage/542f5f8b-aa20-49ce-8653-314b902007a5/dlt_pipeline_op/result using PickledObjectFilesystemIOManager...
-2025-07-24 11:39:45 +0000 - dagster - DEBUG - dlt_data_pipeline_job - 542f5f8b-aa20-49ce-8653-314b902007a5 - 3522 - dlt_pipeline_op - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-2025-07-24 11:39:45 +0000 - dagster - DEBUG - dlt_data_pipeline_job - 542f5f8b-aa20-49ce-8653-314b902007a5 - 3522 - dlt_pipeline_op - STEP_SUCCESS - Finished execution of step "dlt_pipeline_op" in 14.18s.
