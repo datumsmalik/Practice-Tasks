@@ -8,7 +8,7 @@ REGION = "eu-north-1"
 print("🔍 Connecting to Glue...")
 glue_client = boto3.client("glue", region_name=REGION)
 
-print("📂 Listing Glue Databases...")
+print(" Listing Glue Databases...")
 databases = glue_client.get_databases()
 
 for db in databases["DatabaseList"]:
@@ -44,7 +44,7 @@ print(f"🔍 Getting location of table {CATALOG_TABLE}...")
 response = glue_client.get_table(DatabaseName=CATALOG_DATABASE, Name=CATALOG_TABLE)
 
 s3_path = response["Table"]["StorageDescriptor"]["Location"]
-print(f"📦 S3 Path: {s3_path}")
+print(f" S3 Path: {s3_path}")
 '''
 #Step 4: Download S3 file
 '''
@@ -59,12 +59,12 @@ s3_client = boto3.client("s3", region_name=REGION)
 bucket_name = s3_path.replace("s3://", "").split("/", 1)[0]
 object_key = s3_path.replace("s3://", "").split("/", 1)[1]
 
-print(f"📥 Downloading {object_key} from {bucket_name}...")
+print(f" Downloading {object_key} from {bucket_name}...")
 
 temp_file = tempfile.NamedTemporaryFile(delete=False)
 s3_client.download_file(bucket_name, object_key, temp_file.name)
 
-print(f"✅ Downloaded to {temp_file.name}")
+print(f" Downloaded to {temp_file.name}")
 '''
 #Step 5: Test connection to RDS PostgreSQL
 '''
@@ -87,7 +87,7 @@ try:
         host=DB_HOST,
         port=DB_PORT
     )
-    print("✅ Connected successfully!")
+    print(" Connected successfully!")
 
     # Check PostgreSQL version
     cur = conn.cursor()
@@ -97,10 +97,10 @@ try:
 
     cur.close()
     conn.close()
-    print("🔌 Connection closed.")
+    print(" Connection closed.")
 
 except Exception as e:
-    print("❌ Connection failed!")
+    print(" Connection failed!")
     print(e)
 '''
 #Step 6: Create Target Table in RDS
@@ -127,7 +127,7 @@ try:
         port=DB_PORT
     )
     cur = conn.cursor()
-    print("✅ Connected to RDS.")
+    print("Connected to RDS.")
 
     # Create table if not exists
     create_table_sql = f"""
@@ -140,14 +140,14 @@ try:
     cur.execute(create_table_sql)
     conn.commit()
 
-    print(f"🛠️ Table `{TARGET_TABLE}` is ready in RDS.")
+    print(f" Table `{TARGET_TABLE}` is ready in RDS.")
 
     cur.close()
     conn.close()
-    print("🔌 Connection closed.")
+    print("Connection closed.")
 
 except Exception as e:
-    print("❌ Failed to create table in RDS.")
+    print(" Failed to create table in RDS.")
     print(e)
 '''
 
@@ -176,7 +176,7 @@ try:
         port=DB_PORT
     )
     cur = conn.cursor()
-    print("✅ Connected to RDS.")
+    print("Connected to RDS.")
 
     with open(temp_file_path, "r") as f:
         reader = csv.reader(f)
@@ -190,7 +190,7 @@ try:
         rows_inserted = 0
         for row in reader:
             if len(row) < 4:
-                print(f"⚠️ Skipping incomplete row: {row}")
+                print(f" Skipping incomplete row: {row}")
                 continue
             cur.execute(sql, tuple(row[:4]))
             rows_inserted += 1
@@ -200,10 +200,10 @@ try:
     cur.close()
     conn.close()
 
-    print(f"🎉 Successfully inserted {rows_inserted} rows into `{TARGET_TABLE}`.")
+    print(f" Successfully inserted {rows_inserted} rows into `{TARGET_TABLE}`.")
 
 except Exception as e:
-    print("❌ Failed to insert CSV data into RDS.")
+    print(" Failed to insert CSV data into RDS.")
     print(e)
 '''
 #Step 7: Insert CSV Data into RDS
@@ -229,7 +229,7 @@ try:
         port=DB_PORT
     )
     cur = conn.cursor()
-    print("✅ Connected to RDS.")
+    print(" Connected to RDS.")
 
     # Query first 10 rows
     cur.execute(f"SELECT * FROM {TARGET_TABLE} LIMIT 10;")
