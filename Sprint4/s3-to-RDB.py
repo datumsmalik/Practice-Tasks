@@ -5,7 +5,7 @@ import boto3
 
 REGION = "eu-north-1"
 
-print("🔍 Connecting to Glue...")
+print("🔍Connecting to Glue...")
 glue_client = boto3.client("glue", region_name=REGION)
 
 print(" Listing Glue Databases...")
@@ -22,7 +22,7 @@ import boto3
 REGION = "eu-north-1"
 CATALOG_DATABASE = " pgdatabase-1"  # replace if different
 
-print(f"🔍 Listing tables in Glue DB: {CATALOG_DATABASE}")
+print(f" Listing tables in Glue DB: {CATALOG_DATABASE}")
 glue_client = boto3.client("glue", region_name=REGION)
 
 tables = glue_client.get_tables(DatabaseName=CATALOG_DATABASE)
@@ -40,7 +40,7 @@ CATALOG_TABLE = "customers"
 
 glue_client = boto3.client("glue", region_name=REGION)
 
-print(f"🔍 Getting location of table {CATALOG_TABLE}...")
+print(f" Getting location of table {CATALOG_TABLE}...")
 response = glue_client.get_table(DatabaseName=CATALOG_DATABASE, Name=CATALOG_TABLE)
 
 s3_path = response["Table"]["StorageDescriptor"]["Location"]
@@ -79,7 +79,7 @@ DB_NAME = "postgres"  # <-- You might need to change this! See note below
 # =========================
 
 try:
-    print("🔗 Connecting to RDS PostgreSQL...")
+    print(" Connecting to RDS PostgreSQL...")
     conn = psycopg2.connect(
         dbname=DB_NAME,
         user=DB_USER,
@@ -93,7 +93,7 @@ try:
     cur = conn.cursor()
     cur.execute("SELECT version();")
     version = cur.fetchone()
-    print(f"🛠️ PostgreSQL version: {version[0]}")
+    print(f" PostgreSQL version: {version[0]}")
 
     cur.close()
     conn.close()
@@ -118,7 +118,7 @@ DB_NAME = "postgres"  # <-- Use the correct DB name here (not instance ID!)
 TARGET_TABLE = "DestinationTable"
 
 try:
-    print("🔗 Connecting to RDS...")
+    print(" Connecting to RDS...")
     conn = psycopg2.connect(
         dbname=DB_NAME,
         user=DB_USER,
@@ -167,7 +167,7 @@ temp_file_path = "/tmp/tmp6tva1zpb"  # Change if needed
 # =========================
 
 try:
-    print("🔗 Connecting to RDS...")
+    print(" Connecting to RDS...")
     conn = psycopg2.connect(
         dbname=DB_NAME,
         user=DB_USER,
@@ -220,7 +220,7 @@ TARGET_TABLE = "DestinationTable"
 # =========================
 
 try:
-    print("🔗 Connecting to RDS...")
+    print(" Connecting to RDS...")
     conn = psycopg2.connect(
         dbname=DB_NAME,
         user=DB_USER,
@@ -237,7 +237,7 @@ try:
 
     # Print column names
     colnames = [desc[0] for desc in cur.description]
-    print("📋 Columns:", colnames)
+    print(" Columns:", colnames)
 
     # Print each row
     for row in rows:
@@ -247,5 +247,5 @@ try:
     conn.close()
 
 except Exception as e:
-    print("❌ Failed to fetch data.")
+    print("Failed to fetch data.")
     print(e)
