@@ -24,7 +24,7 @@ try:
                 'USERNAME': 'postgres',
                 'PASSWORD': 'Paki$tani123$$$',
 
-                # ✅ Required for custom driver
+                #  Required for custom driver
                 'JDBC_DRIVER_JAR_URI': 's3://localdrivers/postgresql-42.7.3.jar',
                 'JDBC_DRIVER_CLASS_NAME': 'org.postgresql.Driver'
             },
