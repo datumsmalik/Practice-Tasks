@@ -31,7 +31,7 @@ rds_host = "postgres.clwcyeea822i.eu-north-1.rds.amazonaws.com"
 rds_port = "5432"
 rds_db = "postgres"
 rds_user = "postgres"
-rds_password = "Paki$tani123$$$"
+rds_password = "###"
 
 jdbc_url = f"jdbc:postgresql://{rds_host}:{rds_port}/{rds_db}"
 
