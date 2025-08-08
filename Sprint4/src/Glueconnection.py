@@ -22,15 +22,15 @@ try:
             'ConnectionProperties': {
                 'JDBC_CONNECTION_URL': 'jdbc:postgresql://postgres.clwcyeea822i.eu-north-1.rds.amazonaws.com:5432/postgres',
                 'USERNAME': 'postgres',
-                'PASSWORD': 'Paki$tani123$$$',
+                'PASSWORD': '###',
 
                 #  Required for custom driver
                 'JDBC_DRIVER_JAR_URI': 's3://localdrivers/postgresql-42.7.3.jar',
                 'JDBC_DRIVER_CLASS_NAME': 'org.postgresql.Driver'
             },
             'PhysicalConnectionRequirements': {
-                'SubnetId': 'subnet-0f4a806f4dc7d2874',
-                'SecurityGroupIdList': ['sg-0b88a529890b5aead'],
+                'SubnetId': '###',
+                'SecurityGroupIdList': ['###'],
                 'AvailabilityZone': 'eu-north-1a'
             }
         }
